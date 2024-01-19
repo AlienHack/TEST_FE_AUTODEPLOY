@@ -1,5 +1,6 @@
 defmodule TestAppWeb.Router do
   use TestAppWeb, :router
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -16,7 +17,7 @@ defmodule TestAppWeb.Router do
 
   scope "/", TestAppWeb do
     pipe_through :browser
-
+    live_dashboard "/dashboard"
     get "/", PageController, :home
   end
 
